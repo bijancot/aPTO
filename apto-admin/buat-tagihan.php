@@ -39,10 +39,13 @@ $qu->bind_result($iduser,$nama);
 <body>
     <h1>Buat Tagihan sekarang</h1>
     <form action="proses.php" method="POST">
-        <input type="text" value="<?php echo $idtagihan?>" name="idtagihan" readonly><br/><br/>
-        <input type="text" placeholder="subject tagihan" name="subject" required><br/><br/>
-        <textarea name="deskripsi" placeholder="deskripsi ada di sini" cols="20" rows="4" required></textarea><br/><br/>
-        <p>User Tertagih</p><br/>
+        <p>Nomor Tagihan : </p>
+        <input type="text" value="<?php echo $idtagihan?>" name="idtagihan" readonly><br/>
+        <p>Perihal Tagihan Tagihan : </p>
+        <input type="text" placeholder="subject tagihan" name="subject" required><br/>
+        <p>Deskripsi Tagihan : </p>
+        <textarea name="deskripsi" placeholder="deskripsi ada di sini" cols="20" rows="4" required></textarea><br/>
+        <p>User Tertagih</p>
         <select name="iduser" required>
             <?php
             while($qu->fetch()){
@@ -50,9 +53,10 @@ $qu->bind_result($iduser,$nama);
             }
             ?>
         </select>
-        <p>Tanggal Jatuh tempo:</p><br/>
-        <input type="date" name="jatuhtempo" required><br/><br/>
-        <input type="number" name="nominal" placeholder="nominal tagihan" pattern="[0-9]" required><br/><br/>
+        <p>Tanggal Jatuh tempo:</p>
+        <input type="date" name="jatuhtempo" required><br/>
+        <p>Nominal Tagihan : </p>
+        <input type="number" name="nominal" placeholder="nominal tagihan" pattern="[0-9]" required><br/>
         <br/><br/>
         <input type="submit" value="Masukkan Data" name="submit">&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="cancel">
     </form>

@@ -44,7 +44,7 @@ $k->bind_result($idtagihan,$subject,$nominal,$jatuhtempo);
             <td>$subject</td>
             <td>$nominal</td>
             <td>$jatuhtempo</td>
-            <td><a href=\"detail-tagihan.php?idtagihan=$idtagihan\">Detail Tagihan</a> | <a href=\"edit-tagihan.php?idtagihan=$idtagihan\">Edit Tagihan</a> | <a href=\"hapus-tagihan.php?idtagihan=$idtagihan\">Hapus Tagihan </a></td>
+            <td><a href=\"detail-tagihan.php?idtagihan=$idtagihan\">Detail Tagihan</a> | <a href=\"edit-tagihan.php?idtagihan=$idtagihan\">Edit Tagihan</a> | <a href=\"proses.php?submit=Hapus&idtagihan=$idtagihan\">Hapus Tagihan </a></td>
         </tr>";
     }
     ?>
