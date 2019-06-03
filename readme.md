@@ -5,7 +5,11 @@
 
 In Indonesia we recenty moved to the  real digital era with easier way to pay something with something like e-wallet apps. But in some sector this payment method not yet supported. aPTO will change this condition with a cheap apps that support almost every payment method for small businesses in Indonesia.
 
-This apps is built using PHP, Apache and Docker in environtment. But ASAP aPTO will built in Javascript etc.
+built with :
+- PHP7 & HTML5
+- Docker
+- Apache over docker
+- MySQL over docker
 
 ## <strong><em>How aPTO works?</em></strong>
 
