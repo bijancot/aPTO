@@ -7,23 +7,22 @@
     <title>Document</title>
 </head>
 <?php
-    require_once("../req/database.php");
+    // require_once("../req/database.php");
+ session_start();
+    // $yu = $mysqli->prepare("SELECT iduser,nama,email,alamat,notelp,jk from apto_user where iduser=? and nama=?");
+    // $yu->bind_param('ss',$iduser,$user);
+    // $yu->execute();
+    // $yu->bind_result($idusers,$nama,$email,$alamat,$notelp,$jk);
 
-    $user = "Monicc";
-    $iduser = "USR0003";
+    $_SESSION['data']['username'];
+    $_SESSION['data']['iduser'];
 
-    $yu = $mysqli->prepare("SELECT iduser,nama,email,alamat,notelp,jk from apto_user where iduser=? and nama=?");
-    $yu->bind_param('ss',$iduser,$user);
-    $yu->execute();
-    $yu->bind_result($idusers,$nama,$email,$alamat,$notelp,$jk);
 ?>
 <body>
     <h2>INI TAGIHAN ANDA</h2>
-    
-    <?php
-        while($yu->fetch()){
-            echo "<a href=\"kelola-tagihan.php?iduser=$idusers\">Lihat Tagihan anda</a>";
-        }
-    ?>
+        
+    <a href="kelola-tagihan.php">Lihat Tagihan anda</a>
+        
+    <a href="logout-user.php">Logout gan!</a>
 </body>
 </html>

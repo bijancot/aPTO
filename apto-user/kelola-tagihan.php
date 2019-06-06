@@ -9,11 +9,14 @@
 <?php
 $id = $_GET['iduser'];
 require_once("../req/database.php");
-echo $id;
+
 $ko = $mysqli->prepare("SELECT idtagihan,iduser,subject,deskripsi,jatuhtempo,nominal from apto_tagihan where iduser=?");
 $ko->bind_param('s',$id);
 $ko->execute();
 $ko->bind_param($idtagihan,$iduser,$subject,$deskripsi,$jatuhtempo,$nominal);
+
+$a = md5("bijan2089");
+echo $a;
 ?>
 <body>
     <table>
