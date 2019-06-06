@@ -7,24 +7,48 @@
     <title>Document</title>
 </head>
 <?php
-$id = $_GET['iduser'];
+session_start();
+if($_SESSION['data']==null){
+    setcookie("message","belum login, login terlebih dahulu",time()+30,"/");
+    header("Location:../index.php");
+}
+$id = $_SESSION['data']['iduser'];
+$nom = $_SESSION['data']['nama'];
 require_once("../req/database.php");
 
 $ko = $mysqli->prepare("SELECT idtagihan,iduser,subject,deskripsi,jatuhtempo,nominal from apto_tagihan where iduser=?");
 $ko->bind_param('s',$id);
 $ko->execute();
-$ko->bind_param($idtagihan,$iduser,$subject,$deskripsi,$jatuhtempo,$nominal);
+$ko->bind_result($idtagihan,$iduser,$subject,$deskripsi,$jatuhtempo,$nominal);
 
-$a = md5("bijan2089");
-echo $a;
 ?>
 <body>
-    <table>
+    <table border="1">
         <thead>
             <tr>
                 <td>ID TAGIHAN</td>
+                <td>USER TERTAGIH</td>
+                <td>SUBJEK TAGIHAN</td>
+                <td>DESKRIPSI TAGIHAN</td>
+                <td>NOMINAL</td>
+                <td>OPSI</td>
             </tr>
         </thead>
+        <tbody>
+            <?php
+                while($ko->fetch()){
+                    echo "
+                <tr>
+                    <td>$idtagihan</td>
+                    <td>$subject</td>
+                    <td>$iduser / $nom</td>
+                    <td>$deskripsi</td>
+                    <td>$nominal</td>
+                    <td><a href=\"#\"/>Detail Tagihan<a/> | <a href=\"#\"/>Bayar Tagihan</a></td>
+                </tr>";
+                }
+            ?>
+        </tbody>
     </table>
 </body>
 </html>

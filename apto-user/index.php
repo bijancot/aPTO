@@ -16,11 +16,13 @@
 
     $_SESSION['data']['username'];
     $_SESSION['data']['iduser'];
+    $nama = $_SESSION['data']['nama'];
 
 ?>
 <body>
     <h2>INI TAGIHAN ANDA</h2>
-        
+    
+    <?php echo "Halo, pengguna ".$nama;?><br/><br/>
     <a href="kelola-tagihan.php">Lihat Tagihan anda</a>
         
     <a href="logout-user.php">Logout gan!</a>

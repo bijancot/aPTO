@@ -1,6 +1,12 @@
 <?php
 include_once("../req/database.php");
 
+session_start();
+if($_SESSION['data']==null){
+    setcookie("message","belum login, login terlebih dahulu",time()+30,"/");
+    header("Location:../index.php");
+}
+
 $id = "yoloo";
 $kolo = $mysqli->prepare("SELECT count(*) from apto_tagihan where idtagihan!=?");
 $kolo->bind_param('s',$id);

@@ -8,6 +8,11 @@
 </head>
 <?php
 include_once("../req/database.php");
+session_start();
+if($_SESSION['data']==null){
+    setcookie("message","belum login, login terlebih dahulu",time()+30,"/");
+    header("Location:../index.php");
+}
 
 $id =$_GET['idtagihan'];
 $yo = $mysqli->prepare("SELECT a.idtagihan,a.subject,a.deskripsi,a.nominal,a.jatuhtempo,b.iduser,b.nama from apto_tagihan a join apto_user b on a.iduser=b.iduser where a.idtagihan=?");
