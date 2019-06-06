@@ -21,5 +21,5 @@ Let's say that you have a services that provided by baba company, so if it's  ti
 
 ## <strong><em>What currently we work on?</em></strong>
  - curently we just work on backend for admin & staff to make a bill invoice
-
+ - huft #3 work on user front end in apto-user
 ##### Copyright &copy; 2019 Panji Iman Baskoro [**panjibaskoro.web.id**](https://panjibaskoro.web.id/)
