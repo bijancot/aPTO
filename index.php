@@ -7,6 +7,16 @@ echo $ds;
 
 unset($_COOKIE['message']);
 setcookie('message', null, -1, '/');
+
+session_start();
+
+if($_SESSION['data']!=null){
+    if($_SESSION['data']['level']==0 || $_SESSION['data']['level']==1){
+        header('Location:apto-admin/');
+    }else if($_SESSION['data']['level']==2){
+        header('Location:apto-user/');
+    }
+}
 ?>
 <head>
     <meta charset="UTF-8">

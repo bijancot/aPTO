@@ -25,8 +25,8 @@ $ko->bind_result($idtagihan,$iduser,$subject,$deskripsi,$jatuhtempo,$nominal);
         <thead>
             <tr>
                 <td>ID TAGIHAN</td>
-                <td>USER TERTAGIH</td>
                 <td>SUBJEK TAGIHAN</td>
+                <td>USER TERTAGIH</td>
                 <td>DESKRIPSI TAGIHAN</td>
                 <td>NOMINAL</td>
                 <td>OPSI</td>

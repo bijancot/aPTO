@@ -52,5 +52,8 @@ $k->bind_result($idtagihan,$subject,$nominal,$jatuhtempo);
     ?>
     </tbody>
     </table>
+    <br/>
+    <a href="logout-admin.php">Logout</a><br/><br/>
+    <a href="index.php">Kembali ke halaman awal admin</a>
 </body>
 </html>

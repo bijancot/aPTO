@@ -7,11 +7,7 @@
     <title>Document</title>
 </head>
 <?php
- session_start();
- include_once("../req/database.php");
-
-    $_SESSION['data']['username'];
-    $_SESSION['data']['iduser'];
+include_once("../req/session_check.php");
     $nama = $_SESSION['data']['nama'];
     $foto = $_SESSION['data']['foto'];
 
@@ -23,8 +19,8 @@
     <h2>Customer Area</h2>
     
     <?php echo "Halo, pengguna ".$nama;?><br/><br/>
-    <a href="kelola-tagihan.php">Lihat Tagihan anda</a>
-    <?php echo "<img src=\"$foto\"/>";?>
+    <a href="kelola-tagihan.php">Lihat Tagihan anda</a><br/>
+    <a href="detail-tagihan.php">Bayar Tagihan anda</a>
     <a href="logout-user.php">Logout gan!</a>
 </body>
 </html>

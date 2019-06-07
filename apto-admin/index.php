@@ -17,6 +17,7 @@ $nama = $_SESSION['data']['nama'];
     <h3>Hello admin <?php echo $nama?></h3>
 
     <h3>Menu yang tersedia : </h3>
-        <a href="kelola.php">Kelola Tagihan</a>
+        <a href="kelola.php">Kelola Tagihan</a><br/>
+        <a href="logout-admin.php">Logout</a>
 </body>
 </html>
