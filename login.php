@@ -27,10 +27,6 @@ while($log->fetch()){
                 "status"=>$status                
             );
             if($love==0||$love==1){
-                setcookie("loo",$user,time()+2,"/");
-                setcookie("poo",$pass, time()+2,"/");
-                setcookie("joo",$huft, time()+2,"/");
-
                 header("Location:apto-admin/");
             }else if($love==2){
                 header("Location:apto-user/");

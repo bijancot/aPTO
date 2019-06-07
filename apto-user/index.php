@@ -7,24 +7,24 @@
     <title>Document</title>
 </head>
 <?php
-    // require_once("../req/database.php");
  session_start();
-    // $yu = $mysqli->prepare("SELECT iduser,nama,email,alamat,notelp,jk from apto_user where iduser=? and nama=?");
-    // $yu->bind_param('ss',$iduser,$user);
-    // $yu->execute();
-    // $yu->bind_result($idusers,$nama,$email,$alamat,$notelp,$jk);
+ include_once("../req/database.php");
 
     $_SESSION['data']['username'];
     $_SESSION['data']['iduser'];
     $nama = $_SESSION['data']['nama'];
+    $foto = $_SESSION['data']['foto'];
 
+    if($foto==null){
+        $foto = "../img/default.jpg";
+    }
 ?>
 <body>
-    <h2>INI TAGIHAN ANDA</h2>
+    <h2>Customer Area</h2>
     
     <?php echo "Halo, pengguna ".$nama;?><br/><br/>
     <a href="kelola-tagihan.php">Lihat Tagihan anda</a>
-        
+    <?php echo "<img src=\"$foto\"/>";?>
     <a href="logout-user.php">Logout gan!</a>
 </body>
 </html>

@@ -1,11 +1,7 @@
 <?php
-include_once("../req/database.php");
-
 session_start();
-if($_SESSION['data']==null){
-    setcookie("message","belum login, login terlebih dahulu",time()+30,"/");
-    header("Location:../index.php");
-}
+include_once("../req/session_check.php");
+include_once("../req/database.php");
 
 $id="edasdasdf";
 $k = $mysqli->prepare("select idtagihan,subject,nominal,jatuhtempo from apto_tagihan where idtagihan!=?");

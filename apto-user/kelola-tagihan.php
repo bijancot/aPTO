@@ -8,10 +8,8 @@
 </head>
 <?php
 session_start();
-if($_SESSION['data']==null){
-    setcookie("message","belum login, login terlebih dahulu",time()+30,"/");
-    header("Location:../index.php");
-}
+include_once("../req/database.php");
+
 $id = $_SESSION['data']['iduser'];
 $nom = $_SESSION['data']['nama'];
 require_once("../req/database.php");
