@@ -52,7 +52,10 @@ $idtagihan = $_GET['idtagihan'];
         <option value="MANDIRI">MANDIRI</option>
     </select><br/><br/>
     Nominal Bayar : <br/><br/>
-    <input type="number" name="nominalbayar" placeholder="nominal tagihan" pattern="[0-9]" required><br/>
+    <input type="number" name="nominalbayar" placeholder="nominal tagihan" pattern="[0-9]" required><br/><br/>
+    Bukti Pembayaran : <br/><br/>
+    <input type="file" name="buktibayar" placeholder="Upload foto bukti transfer"><br/><br/>
+    <input type="submit" value="Bayar Sekarang" name="submit">
     </form>
 </body>
 </html>

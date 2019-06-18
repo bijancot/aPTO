@@ -7,14 +7,13 @@
     <title>Document</title>
 </head>
 <?php
+session_start();
+include_once("../req/session_check.php");
+include_once("valid-user.php");
 
 echo $_COOKIE['message'];
 unset($_COOKIE['message']);
 setcookie('message', null, -1, '/');
-
-session_start();
-include_once("../req/session_check.php");
-include_once("valid-user.php");
 
     $nama = $_SESSION['data']['nama'];
     $foto = $_SESSION['data']['foto'];
