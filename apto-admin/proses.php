@@ -1,5 +1,7 @@
 <?php
 session_start();
+include_once("../req/session_check.php");
+include_once("valid-admin.php");
 include_once("../req/database.php");
 
 $param = $_POST['submit'];

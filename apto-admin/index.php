@@ -3,8 +3,13 @@
 <?php
 session_start();
 include_once("../req/session_check.php");
-
+include_once("valid-admin.php");
 $nama = $_SESSION['data']['nama'];
+
+echo $_COOKIE['message'];
+unset($_COOKIE['message']);
+setcookie('message', null, -1, '/');
+
 ?>
 <head>
     <meta charset="UTF-8">

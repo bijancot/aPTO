@@ -8,7 +8,9 @@
 </head>
 <?php
 session_start();
+include_once("../req/session_check.php");
 include_once("../req/database.php");
+include_once("valid-user.php");
 
 $id = $_SESSION['data']['iduser'];
 $nom = $_SESSION['data']['nama'];
@@ -42,7 +44,7 @@ $ko->bind_result($idtagihan,$iduser,$subject,$deskripsi,$jatuhtempo,$nominal);
                     <td>$iduser / $nom</td>
                     <td>$deskripsi</td>
                     <td>$nominal</td>
-                    <td><a href=\"#\"/>Detail Tagihan<a/> | <a href=\"#\"/>Bayar Tagihan</a></td>
+                    <td><a href=\"detail-tagihan.php\"/>Detail Tagihan<a/> | <a href=\"bayar.php\"/>Bayar Tagihan</a></td>
                 </tr>";
                 }
             ?>

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+session_start();
 include_once("../req/session_check.php");
 include_once("../req/database.php");
+include_once("valid-user.php");
 
 $idd = "Fsdfsd";
 $iduser1=$_SESSION['data']['iduser'];

@@ -1,7 +1,9 @@
 <?php
 session_start();
 include_once("../req/session_check.php");
+include_once("valid-admin.php");
 include_once("../req/database.php");
+
 
 $id = "yoloo";
 $kolo = $mysqli->prepare("SELECT count(*) from apto_tagihan where idtagihan!=?");
