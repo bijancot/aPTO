@@ -9,17 +9,17 @@
 <?php
 session_start();
 include_once("../req/session_check.php");
-include_once("../req/database.php");
+include("../req/database.php");
 include_once("valid-user.php");
 
 $id = $_SESSION['data']['iduser'];
 $nom = $_SESSION['data']['nama'];
-require_once("../req/database.php");
 
-$ko = $mysqli->prepare("SELECT a.idtagihan,a.iduser,a.subject,a.deskripsi,a.jatuhtempo,a.nominal,b.status from apto_tagihan a join apto_pembayaran b on a.idtagihan=b.idtagihan where iduser=?");
+
+$ko = $mysqli->prepare("SELECT count(*) from apto_tagihan a left join apto_pembayaran b on a.idtagihan=b.idtagihan where iduser=?");
 $ko->bind_param('s',$id);
 $ko->execute();
-$ko->bind_result($idtagihan,$iduser,$subject,$deskripsi,$jatuhtempo,$nominal,$status);
+$ko->bind_result($hitung);
 
 ?>
 <body>
@@ -37,22 +37,53 @@ $ko->bind_result($idtagihan,$iduser,$subject,$deskripsi,$jatuhtempo,$nominal,$st
         </thead>
         <tbody>
             <?php
+  
                 while($ko->fetch()){
-                    if($status==0){
-                        $kond="Proses";
-                    }else if($status==1){
-                        $kond="Pembayaran Valid";
+                    if($hitung>=1){
+                        include("../req/database.php");
+                        $v = $mysqli->prepare("SELECT a.idtagihan,a.iduser,a.subject,a.deskripsi,a.jatuhtempo,a.nominal,b.status from apto_tagihan a left join apto_pembayaran b on a.idtagihan=b.idtagihan where a.iduser=?");
+                        $v->bind_param('s',$id);
+                        $v->execute();
+                        $v->bind_result($idtagihan,$iduser,$subject,$deskripsi,$jatuhtempo,$nominal,$status);
+
+                        while($v->fetch()){
+                            if($status==1){
+                                $kond="Dalam proses";
+                            }else if($status==2){
+                                $kond="Tagihan diterima";
+                            }else if($status==0){
+                                $kond="Belum dibayar";
+                            }
+                            echo "
+                        <tr>
+                            <td>$idtagihan</td>
+                            <td>$subject</td>
+                            <td>$iduser / $nom</td>
+                            <td>$deskripsi</td>
+                            <td>$nominal</td>
+                            <td><a href=\"detail-tagihan.php\"/>Detail Tagihan<a/> | <a href=\"bayar.php?idtagihan=$idtagihan\"/>Bayar Tagihan</a></td>
+                            <td>$kond</td>
+                        </tr>";}
+                    }else if($hitung==0){
+                        include("../req/database.php");
+                        $o = $mysqli->prepare("SELECT idtagihan,iduser,subject,deskripsi,jatuhtempo,nominal from apto_tagihan where iduser=?");
+                        $o->bind_param('s',$id);
+                        $o->execute();
+                        $o->bind_result($idtagihan,$iduser,$subject,$deskripsi,$jatuhtempo,$nominal);
+
+                        while($o->fetch()){
+                            echo "
+                        <tr>
+                            <td>$idtagihan</td>
+                            <td>$subject</td>
+                            <td>$iduser / $nom</td>
+                            <td>$deskripsi</td>
+                            <td>$nominal</td>
+                            <td><a href=\"detail-tagihan.php\"/>Detail Tagihan<a/> | <a href=\"bayar.php?idtagihan=$idtagihan\"/>Bayar Tagihan</a></td>
+                            <td>Belum terbayar</td>
+                        </tr>";
+                        }
                     }
-                    echo "
-                <tr>
-                    <td>$idtagihan</td>
-                    <td>$subject</td>
-                    <td>$iduser / $nom</td>
-                    <td>$deskripsi</td>
-                    <td>$nominal</td>
-                    <td><a href=\"detail-tagihan.php\"/>Detail Tagihan<a/> | <a href=\"bayar.php?idtagihan=$idtagihan\"/>Bayar Tagihan</a></td>
-                    <td>$kond</td>
-                </tr>";
                 }
             ?>
         </tbody>
