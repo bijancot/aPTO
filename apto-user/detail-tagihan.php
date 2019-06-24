@@ -52,9 +52,12 @@ $ko->close();
                 }else if($status==2){
                     $yolo = "Tagihan Terbayar";
                     $huft = "";
-                }else if($status==NULL){
+                }else if($status==NULL || $status==0){
                     $yolo = "belum dibayar";
-                    $huft = "<a href=\"bayar.php?idtagihan=$idtagihan\">Bayat Tagihan ini</a>";
+                    $huft = "<a href=\"bayar.php?idtagihan=$idtagihan\">Bayar Tagihan ini</a>";
+                }else if($status==3){
+                    $yolo = "Pembayaran ditolak";
+                    $huft = "<a href=\"bayar.php?idtagihan=$idtagihan\">Buat Tagihan baru</a>";
                 }
                 echo "
             <div class=\"kotak\">
@@ -69,6 +72,7 @@ $ko->close();
     
             echo "<h2>Rp ". number_format($nominal, 0, ".", ".").",- </h2>
     
+            $huft
             </div>";
             }
                 

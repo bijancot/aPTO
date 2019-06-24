@@ -27,7 +27,7 @@ if($param=="Bayar Sekarang"){
             $banktujuan = $_POST['banktujuan'];
             $nominalbayar = $_POST['nominalbayar'];
             $buktibayar = 'bayar/'.$real;
-            $status = '0';
+            $status = '1';
             
             
             $q->execute();

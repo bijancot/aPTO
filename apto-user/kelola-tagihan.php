@@ -53,6 +53,8 @@ $ko->bind_result($hitung);
                                 $kond="Tagihan diterima";
                             }else if($status==0){
                                 $kond="Belum dibayar";
+                            }else if($status==3){
+                                $kond="Pembayaran ditolak";
                             }
                             echo "
                         <tr>
