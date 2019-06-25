@@ -26,7 +26,18 @@ $k->bind_result($idtagihan,$subject,$nominal,$jatuhtempo,$status,$idpembayaran);
     }
 </style>
 <body>
-    <a href="buat-tagihan.php">Buat Tagihan</a>
+    <div class="hero">
+        <div class="container">
+            <section class="hero-body">
+            <div class="level">
+                <div class="level-left">
+                <a href="buat-tagihan.php" class="button is-info is-normal level-item" style="margin-right:800px">Buat Tagihan</a>
+                </div>
+                <div class="level-right">
+                <a href="logout-admin.php" class="button is-info is-danger level-item" style="text-align:right !important;">Logout</a>
+                </div>
+                <br/><br/>
+            </div>
     <table class="table is-bordered is-striped is-hoverable">
     <thead>
         <tr>
@@ -67,7 +78,8 @@ $k->bind_result($idtagihan,$subject,$nominal,$jatuhtempo,$status,$idpembayaran);
     </tbody>
     </table>
     <br/>
-    <a href="logout-admin.php">Logout</a><br/><br/>
-    <a href="index.php">Kembali ke halaman awal admin</a>
+    <a href="index.php" class="button is-normal is-info">Kembali ke halaman awal admin</a>
+            </section>
+    </div>
 </body>
 </html>
