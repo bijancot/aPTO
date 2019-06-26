@@ -31,12 +31,15 @@ $k->bind_result($idtagihan,$subject,$nominal,$jatuhtempo,$status,$idpembayaran);
             <section class="hero-body">
             <div class="level">
                 <div class="level-left">
-                <a href="buat-tagihan.php" class="button is-info is-normal level-item" style="margin-right:800px">Buat Tagihan</a>
+                    <div class="level-items">
+                    <a href="buat-user.php" class="button is-normal is-info">Buat User Baru</a><br/><br/>
+                    </div>
                 </div>
                 <div class="level-right">
-                <a href="logout-admin.php" class="button is-info is-danger level-item" style="text-align:right !important;">Logout</a>
+                <div class="level-items">
+                    <a href="logout-admin.php" class="button is-normal is-danger">Log Out</a><br/><br/>
+                    </div>
                 </div>
-                <br/><br/>
             </div>
     <table class="table is-bordered is-striped is-hoverable">
     <thead>

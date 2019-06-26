@@ -19,12 +19,29 @@ setcookie('message', null, -1, '/');
     <title>Document</title>
 </head>
 <body>
-    <h1>ADMIN AREA</h1>
-    <h3>Hello admin <?php echo $nama?></h3>
-
-    <h3>Menu yang tersedia : </h3>
-        <a href="kelola.php">Kelola Tagihan</a><br/>
-        <a href="kelola-user.php">Manaje User</a><br/>
-        <a href="logout-admin.php">Logout</a>
+    <div class="hero">
+        <div class="hero-body">
+            <div class="container">
+            <div class="columns">
+                <div class="column is-one-fifth"></div> 
+                <div class="column box is-three-fifths" style="padding:100px;">
+                    <div class="columns">
+                        <div class="column is-half">
+                            <h1 class="title is-2">ADMIN AREA</h1>
+                            <h3 class="subtitle is-5">Hello admin <?php echo $nama?></h3>
+                        </div>
+                        <div class="column is-half box">
+                            <h3 class="subtitle is-5">Menu yang tersedia : </h3>
+                            <a class="button is-info is-medium" href="kelola.php">Kelola Tagihan</a><br/><br/>
+                            <a class="button is-warning is-medium" href="kelola-user.php">Manaje User</a><br/><br/>
+                            <a class="button is-danger is-medium" href="logout-admin.php">Logout</a><br/>
+                        </div>
+                    </div>
+                </div> 
+                <div class="column is-one-fifth"></div> 
+            </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
