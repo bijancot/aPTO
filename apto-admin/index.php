@@ -24,6 +24,7 @@ setcookie('message', null, -1, '/');
 
     <h3>Menu yang tersedia : </h3>
         <a href="kelola.php">Kelola Tagihan</a><br/>
+        <a href="kelola-user.php">Manaje User</a><br/>
         <a href="logout-admin.php">Logout</a>
 </body>
 </html>
