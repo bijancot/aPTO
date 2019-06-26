@@ -1,4 +1,4 @@
-# <strong><em>aPTO : PDO11</em></strong>
+# <strong><em>aPTO</em></strong>
 ### <strong><em>(aplikasi pembayaran tagihan online)</em></strong>
 
 <em>aplikasi pembayaran tagihan online (aPTO)</em> or in english called Online bill payment application is an apps that focused to help small businesses to manage their payment system to be more and more efficient and effective than conventional system.
