@@ -3,7 +3,7 @@
 ## Connecting to database
 
 ### PDO
-'''
+```
 	<?php
 $servername = "localhost";
 $username = "root";
@@ -20,10 +20,10 @@ catch(PDOException $e)
     echo "Connection failed: " . $e->getMessage();
     }
 ?>
-'''
+```
 
 ### MySQLi with PDO style
-'''
+```
 <?php
 $db = "apto_db";
 $user = "budosen";
@@ -38,11 +38,11 @@ if($mysqli->connect_errno){
 	echo "gagal connect DB"."$mysqli->connect_errno";
 }
 ?>
-'''
+```
 ## Selecting data from database
 
 ### PDO
-'''
+```
 <?php
 include_once('connect.php');
 if (isset($_POST["id_jadwal"])) {
@@ -53,17 +53,17 @@ if (isset($_POST["id_jadwal"])) {
 $stmtm->execute();
 	$hasilm = $stmtm->fetchAll();
 ?> 
-'''
+```
 
 ### MySQLi with PDO style
-'''
+```
 
-'''
+```
 
 ## editing data from database
 
 ### PDO
-'''
+```
 <?php
 	require_once('connect.php');
   $stmt = $conn->prepare("UPDATE `mahasiswa` SET `NAME`=:name,`STUDY_PROGRAM`=:sprogram,`GENDER`=:gender,`PHONE_NUMBER`=:pnumber WHERE `NRP`=:nrp");
@@ -74,9 +74,9 @@ $stmtm->execute();
     $stmt->bindParam(":pnumber",$_POST['pnumber']);
     $stmt->execute();
 ?>
-'''
+```
 ### MySQLi with PDO style
-'''
+```
     require_once("../req/database.php");
 
     $mo = $mysqli->prepare("UPDATE apto_tagihan set iduser=?, subject=?, deskripsi=?, jatuhtempo=?, nominal=? where idtagihan=?");
@@ -89,11 +89,11 @@ $stmtm->execute();
     $nominal = $_POST['nominal'];
     $idtagihan = $_POST['idtagihan'];
     $mo->execute();
-'''
+```
 ## Deleting data from database
 ### PDO
-'''
-'''
+```
+```
 ### MySQLi with PDO style
 
 ## Insert data to database
