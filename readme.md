@@ -10,6 +10,7 @@ built with :
 - Docker
 - Apache over docker
 - MySQL over docker
+- Bulma css [**bulma.io**](https://bulma.io/)
 
 ## <strong><em>How aPTO works?</em></strong>
 
@@ -20,6 +21,6 @@ In general aPTO will have backend for admin & staff on the small business and fr
 Let's say that you have a services that provided by baba company, so if it's  times to pay bill for that service, staff on baba company will make an invoice for you and tell you how to pay it. After you pay baba company's staff will check your payment.
 
 ## <strong><em>What currently we work on?</em></strong>
- - curently we just work on backend for admin & staff to make a bill invoice
- - huft #3 work on user front end in apto-user
+ - we  work's for good grade in this class (Lol)
+ - designing with bulma css
 ##### Copyright &copy; 2019 Panji Iman Baskoro [**panjibaskoro.web.id**](https://panjibaskoro.web.id/)
