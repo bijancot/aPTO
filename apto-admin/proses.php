@@ -109,12 +109,12 @@ if($param == "Masukkan Data"){
     $tky->execute();
     header( "refresh:2; url=kelola-user.php" );
 }else if($paramget == "hapus user"){
-    require_once("../req/database.php");
+    require_once("../req/databasepdo.php");
     echo "hapus";
 
-    $my = $mysqli->prepare("DELETE FROM apto_user where iduser=?");
-    $iduser = $_GET['iduser'];
-    $my->bind_param('s',$iduser);
+    $my = $pdo->prepare("DELETE FROM apto_user where iduser=:idusers");
+    echo $iduser = $_GET['iduser'];
+    $my->bindParam(":idusers",$_GET['iduser']);
     $my->execute();
 
     header( "refresh:2; url=kelola-user.php" );

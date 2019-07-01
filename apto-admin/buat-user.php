@@ -44,6 +44,18 @@ if($num<=9){
                 <div class="columns">
                     <div class="column is-one-fifth"></div>
                     <div class="column is-three-fifth">
+                    <div class="level">
+                <div class="level-left">
+                    <div class="level-items">
+                    <a href="index.php" class="button is-normal is-info">Kembali ke halaman awal admin</a>
+                    </div>
+                </div>
+                <div class="level-right">
+                <div class="level-items">
+                    <a href="logout-admin.php" class="button is-normal is-danger">Log Out</a>
+                    </div>
+                </div>
+            </div>
                         <div class="box">
                             <h2 class="title is-3">Buat User</h2>
                             <div class="columns">
@@ -73,8 +85,7 @@ if($num<=9){
                                     <label class="label">Alamat</label>
                                     <div class="control">
                                     
-                                    <textarea name="alamat" class="textarea" required>
-                                    </textarea>
+                                    <textarea name="alamat" class="textarea" required></textarea>
                                     </div>
                                 </div>
 
@@ -124,7 +135,6 @@ if($num<=9){
                                 <input type="submit" name="submit" value="Tambahkan User" class="button is-info">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <input type="reset" value="cancel" onclick="location.href='kelola-user.php'" class="button is-warning"/>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
