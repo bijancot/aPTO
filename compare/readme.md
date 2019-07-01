@@ -1,6 +1,6 @@
 # Compare PDO and MySQLi with PDO style
 
-## Connecting to database1a
+## Connecting to database
 
 ### PDO
 ```
