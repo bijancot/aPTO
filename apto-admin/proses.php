@@ -131,7 +131,7 @@ if($param == "Masukkan Data"){
     $notelp = $_POST['notelp'];
     $jk = $_POST['jk'];
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
     $level = $_POST['level'];
     $status = $_POST['status'];
 

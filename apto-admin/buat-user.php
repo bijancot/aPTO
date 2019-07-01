@@ -32,31 +32,107 @@ if($num<=9){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../req/bulma/css/bulma.min.css">
     <title>Document</title>
 </head>
 <body>
     <form action="proses.php" method="POST">
-    id user : <?php echo $iduser?><br/><br/>
-    nama user :<br/><br/>
-    <input name="namauser" type="text" required><br/>
-    email :<br/><br/>
-    <input name="email" type="text" required><br/><br/>
-    notelp :<br/>
-    +62 <input name="notelp" type="text" required><br/><br/>
-    jk :<br/>
-    <input type="radio" name="jk" value="L" id="laki" <?php if($jk=="L"){echo "checked=\"checked\"";}?>/><label for="laki">Laki-Laki</label>&nbsp;&nbsp;&nbsp;<input type="radio" name="jk" value="P" id="perempuan" <?php if($jk=="P"){echo "checked=\"checked\"";}?>/><label for="perempuan"">Perempuan</label><br/><br/>
-    username :<br/>
-    <input name="username" type="text" required><br/><br/>
-    password :<br/>
-    <input name="password" type="password" required><br/><br/>
-    alamat :<br/>
-    <textarea name="alamat" required>
-    </textarea><br/>
-    <input type="hidden" name="level" value="2">
-    <input type="hidden" name="status" value="1">
-    <input type="hidden" name="iduser" value="<?php echo $iduser?>"><br/><br/>
-    <input type="submit" name="submit" value="Tambahkan User">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="reset" value="cancel" onclick="header()"/>
+
+    <div class="hero">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-one-fifth"></div>
+                    <div class="column is-three-fifth">
+                        <div class="box">
+                            <h2 class="title is-3">Buat User</h2>
+                            <div class="columns">
+                                <div class="column is-half">
+                                    <div class="field">
+                                        <label class="label">Id User</label>
+                                        <div class="control">
+                                        <input class="input" type="text" value="<?php echo $iduser?>" name="idtagihan" readonly><br/>
+                                        </div>
+                                        <p class="help">This is a help text</p>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Nama User</label>
+                                        <div class="control">
+                                        <input class="input" name="namauser" type="text" required><br/>
+                                        </div>
+                                        <p class="help">This is a help text</p>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Email</label>
+                                        <div class="control">
+                                        <input class="input" name="email" type="text" required>
+                                        </div>
+                                        <p class="help">This is a help text</p>
+                                    </div>
+                                <div class="field">
+                                    <label class="label">Alamat</label>
+                                    <div class="control">
+                                    
+                                    <textarea name="alamat" class="textarea" required>
+                                    </textarea>
+                                    </div>
+                                </div>
+
+                                </div>
+                                <div class="column is-half">
+                                    <div class="field">
+                                        <label class="label">Username</label>
+                                        <div class="control">
+                                        <input class="input" name="username" type="text" required>
+                                        <p class="help">This is a help text</p>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Password</label>
+                                        <div class="control">
+                                        <input class="input" name="password" type="password" required>
+                                        <p class="help">This is a help text</p>
+                                        </div>
+                                    </div>
+                                    <label class="label">No. Telp</label>
+                                    <div class="field has-addons">
+                                        <p class="control">
+                                            <a class="button is-static">
+                                            +62
+                                            </a>
+                                        </p>
+                                        <p class="control">
+                                        <input class="input" name="notelp" type="text" required>
+                                    </div>
+                                        </p>
+                                        <div class="field">
+                                <label class="label">Jenis Kelamin</label>
+                                <div class="control">
+                                <label class="radio">
+                                    <input type="radio" name="jk" value="L" id="laki" <?php if($jk=="L"){echo "checked=\"checked\"";}?>/>
+                                    Laki - Laki
+                                </label>
+                                <label class="radio">
+                                <input type="radio" name="jk" value="P" id="perempuan" <?php if($jk=="P"){echo "checked=\"checked\"";}?>/>
+                                Perempuan
+                                </label>
+                                </div>
+                            </div>
+                                <input type="hidden" name="level" value="2">
+                                <input type="hidden" name="status" value="1">
+                                <input type="hidden" name="iduser" value="<?php echo $iduser?>"><br/><br/>
+                                <input type="submit" name="submit" value="Tambahkan User" class="button is-info">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="reset" value="cancel" onclick="location.href='kelola-user.php'" class="button is-warning"/>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-one-fifth"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     </form>
 </body>
 </html>

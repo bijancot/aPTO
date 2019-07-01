@@ -32,7 +32,7 @@ $k->bind_result($idtagihan,$subject,$nominal,$jatuhtempo,$status,$idpembayaran);
             <div class="level">
                 <div class="level-left">
                     <div class="level-items">
-                    <a href="buat-user.php" class="button is-normal is-info">Buat User Baru</a><br/><br/>
+                    <a href="buat-tagihan.php" class="button is-normal is-info">Buat Tagihan Baru</a><br/><br/>
                     </div>
                 </div>
                 <div class="level-right">

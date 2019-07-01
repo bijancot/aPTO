@@ -30,6 +30,7 @@ while($yo->fetch()){
 }
 ?>
 <body>
+    <form action="proses.php" method="POST">  
     <div class="hero">
         <div class="hero-body">
             <div class="container">
@@ -56,24 +57,24 @@ while($yo->fetch()){
                                     <div class="field">
                                         <label class="label">Id Tagihan</label>
                                         <div class="control">
-                                        <input type="text" value="<?php echo $hasil['idtagihan']?>" name="idtagihan" readonly><br/>
+                                        <input type="text" class="input" value="<?php echo $hasil['idtagihan']?>" name="idtagihan" readonly><br/>
                                         </div>
-                                        <p class="help">This is a help text</p>
+                                        <p class="help">Id dibuat otomatis oleh sistem</p>
                                     </div>
                                     <div class="columns">
                                         <div class="column is-half">
                                         <div class="field">
                                             <label class="label">jatuh Tempo</label>
                                             <div class="control">
-                                            <input type="date" name="jatuhtempo" value="<?php echo $hasil['jatuhtempo']?>" required><br/>
+                                            <input type="date" name="jatuhtempo" class="input" value="<?php echo $hasil['jatuhtempo']?>" required><br/>
                                             </div>
-                                            <p class="help">This is a help text</p>
                                         </div>
                                         </div>
                                         <div class="column is-half">
                                         <div class="field">
                                                 <label class="label">User Tertagih</label>
                                                 <div class="control">
+                                                <div class="select">
                                                 <select name="iduser" required>
                                                 
                                                 <?php
@@ -96,33 +97,30 @@ while($yo->fetch()){
                                                     }
                                                 ?>
                                             </select>
-                                                </div>
-                                                <p class="help">This is a help text</p>
                                             </div>
+                                                </div>
+                                              </div>
                                         </div>
                                     </div>
                                     <div class="field">
                                         <label class="label">Nominal Tagihan</label>
                                         <div class="control">
-                                        <input type="number" name="nominal" placeholder="nominal tagihan" pattern="[0-9]" value="<?php echo $hasil['nominal']?>" required><br/>
+                                        <input type="number" class="input" name="nominal" placeholder="nominal tagihan" pattern="[0-9]" value="<?php echo $hasil['nominal']?>" required><br/>
                                         </div>
-                                        <p class="help">This is a help text</p>
                                     </div>
                                 </div>
                                 <div class="column is-half">
                                     <div class="field">
                                         <label class="label">Subject Tagihan</label>
                                         <div class="control">
-                                        <input type="text" placeholder="subject tagihan" name="subject" value="<?php echo $hasil['subject']?>" required><br/>
+                                        <input type="text" class="input" placeholder="subject tagihan" name="subject" value="<?php echo $hasil['subject']?>" required><br/>
                                         </div>
-                                        <p class="help">This is a help text</p>
                                     </div>
                                     <div class="field">
                                         <label class="label">Deskripsi Tagihan</label>
                                         <div class="control">
                                         <textarea name="deskripsi" class="textarea is-normal" placeholder="deskripsi ada di sini" cols="20" rows="4" <?php echo $hasil['deskripsi']?> required><?php echo $hasil['deskripsi']?> </textarea><br/>
                                         </div>
-                                        <p class="help">This is a help text</p>
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +142,6 @@ while($yo->fetch()){
             </div>
         </div>
     </div>
-<form action="proses.php" method="POST">  
     </form>
 </body>
 </html>
