@@ -57,7 +57,15 @@ $stmtm->execute();
 
 ### MySQLi with PDO style
 ```
+<?php
+include_once('database.php');
+$id = $_GET['idtagihan'];
 
+$yu = $mysqli->prepare("SELECT a.idtagihan,a.subject,a.deskripsi,a.nominal,a.jatuhtempo,b.iduser,b.nama from apto_tagihan a join apto_user b on a.iduser=b.iduser where a.idtagihan=?");
+$yu->bind_param('s',$id);
+$yu->execute();
+$yu->bind_result($idtagihan,$subject,$deskripsi,$nominal,$jatuhtempo,$iduser,$nama);
+?>
 ```
 
 ## editing data from database
@@ -93,9 +101,94 @@ $stmtm->execute();
 ## Deleting data from database
 ### PDO
 ```
+<?php
+
+include 'connect.php';
+
+try {
+
+    $stmtm = $conn->prepare("DELETE FROM `detail_jadwal` WHERE ID_DETAIL=:id_detail");
+    $stmtm->bindParam(":id_detail",$_GET['ID_DETAIL']);
+    $stmtm->execute();
+  
+    // $stmt = $conn->prepare("DELETE FROM `mahasiswa` WHERE NRP=:nrp");
+    // $stmt->bindParam(":nrp",$_GET['NRP']);
+    // $stmt->execute();
+
+    echo "Deleted Successfully<br><br>"; 	
+}
+
+catch(PDOException $e) {
+	echo "Update failed: " . $e->getMessage();
+}
+
+?>
 ```
 ### MySQLi with PDO style
+```
+<?php
+    require_once("../req/database.php");
+    echo "hapus";
+
+    $my = $mysqli->prepare("DELETE FROM apto_user where iduser=?");
+    $iduser = $_GET['iduser'];
+    $my->bind_param('s',$iduser);
+    $my->execute();
+?>
+```
 
 ## Insert data to database
 ### PDO
+```
+<?php  
+include 'connect.php';
+
+try {
+
+	$stmtm = $conn->prepare("INSERT INTO `mahasiswa`(`NRP`, `NAME`, `STUDY_PROGRAM`, `GENDER`, `PHONE_NUMBER`) VALUES (:nrp,:name,:sprogram,:gender,:pnumber)");
+	$stmtm->bindParam(":nrp",$_POST['nrp']);
+	$stmtm->bindParam(":name",$_POST['name']);
+	$stmtm->bindParam(":sprogram",$_POST['sprogram']);
+	$stmtm->bindParam(":gender",$_POST['gender']);
+	$stmtm->bindParam(":pnumber",$_POST['pnumber']);
+	$stmtm->execute();
+
+	$stmtj = $conn->prepare("INSERT INTO `detail_jadwal`(`NRP`, `ID_JADWAL`) VALUES (:nrp,:id_jadwal)");
+	$stmtj->bindParam(":nrp",$_POST['nrp']);
+	$stmtj->bindParam(":id_jadwal",$_POST['id_jadwal']);
+	$stmtj->execute();
+
+    echo "Data inserted <br><br>";  	
+}
+catch(PDOException $e) {
+	
+	$stmtj = $conn->prepare("INSERT INTO `detail_jadwal`(`NRP`, `ID_JADWAL`) VALUES (:nrp,:id_jadwal)");
+	$stmtj->bindParam(":nrp",$_POST['nrp']);
+	$stmtj->bindParam(":id_jadwal",$_POST['id_jadwal']);
+	$stmtj->execute();
+
+	echo "Data inserted <br><br>";
+}
+
+?>
+```
 ### MySQLi with PDO style
+```
+<?php
+ require_once("../req/database.php");
+
+    $tky = $mysqli->prepare("INSERT INTO apto_user(iduser,nama,email,alamat,notelp,jk,username,password,level,status) VALUES (?,?,?,?,?,?,?,?,?,?)");
+    $tky->bind_param('ssssssssss',$iduser,$nama,$email,$alamat,$notelp,$jk,$username,$password,$level,$status);
+    $iduser = $_POST['iduser'];
+    $nama = $_POST['namauser'];
+    $email = $_POST['email'];
+    $alamat = $_POST['alamat'];
+    $notelp = $_POST['notelp'];
+    $jk = $_POST['jk'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $level = $_POST['level'];
+    $status = $_POST['status'];
+    $tky->execute();
+?>
+```
