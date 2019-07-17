@@ -1,13 +1,15 @@
 <?php
 require_once("req/database.php");
-$user=$_POST['username'];
-$pass=md5($_POST['password']);
+echo $user=$_POST['username'];
+echo $pass=md5($_POST['password']);
 
-$log = $mysqli->prepare("SELECT count(iduser),iduser,nama,email,alamat,notelp,jk,level,status from apto_user where username=? and password=?");
+echo "anda tidak terdaftar, silahkan kembali <a href=\"index.php\">Kembali</a>";
+$log = $mysqli->prepare("SELECT count(IF(iduser IS NULL or iduser = '', 'empty', iduser)),iduser,nama,email,alamat,notelp,jk,level,status from apto_user where username=? and password =? is not null");
 $log->bind_param('ss',$user,$pass);
 $log->execute();
 $log->bind_result($huft,$iduser,$nama,$email,$alamat,$notelp,$jk,$level,$status);
 
+echo $huft;
 while($log->fetch()){
     $isUser = $huft;    
     $love = $level;
@@ -29,13 +31,13 @@ while($log->fetch()){
                 header("Location:apto-admin/");
             }else if($love==2){
                 header("Location:apto-user/");
-            }else{
+            }else if($love=='NULL'&&$isUser==0){
                 echo "ERROR";
                 header("Location:index.php");
             }
         }else if($isUser==0){
-            setcookie("message","belum login, login terlebih dahulu",time()+30,"/");
-            header("Location:../index.php");
+            setcookie("message","oops something wrong",time()+30,"/");
+            header("Location:index.php");
         }
 }
 

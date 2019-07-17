@@ -45,8 +45,8 @@ if($_SESSION['data']!=null){
                     ?>
                         <h1 class="title is-1">LOGIN</h1>
                         <form method="POST" action="login.php">
-                            <input type="text" placeholder="USERNAME" name="username" class="input is-dark "/><br/><br/>
-                            <input type="password" placeholder="PASSWORD" name="password" class="input is-dark"/><br/><br>
+                            <input type="text" placeholder="USERNAME" name="username" class="input is-dark " required/><br/><br/>
+                            <input type="password" placeholder="PASSWORD" name="password" class="input is-dark" required/><br/><br>
                             <input type="submit" value="Masuk Sekarang" class="button is-warning is-medium" style="background-color:#ffc300 !important;color:#160f29 !important;font-weight:bold;">
                         </form>
                     </div>

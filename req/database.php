@@ -2,7 +2,7 @@
 $db = "apto_db";
 $user = "budosen";
 $pass = "bijan2089";
-$host = "172.17.0.3";
+$host = "172.18.20.3";
 
 
 $mysqli = new mysqli($host,$user,$pass,$db);
