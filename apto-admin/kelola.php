@@ -5,10 +5,10 @@ include_once("valid-admin.php");
 include_once("../req/database.php");
 
 $id="edasdasdf";
-$k = $mysqli->prepare("SELECT a.idtagihan,a.subject,a.nominal,a.jatuhtempo,b.status,b.idpembayaran FROM apto_tagihan a LEFT JOIN apto_pembayaran b on a.idtagihan=b.idtagihan where a.idtagihan!=?");
+$k = $mysqli->prepare("SELECT a.idtagihan,a.subject,a.nominal,a.jatuhtempo,b.status,b.idpembayaran,a.log FROM apto_tagihan a LEFT JOIN apto_pembayaran b on a.idtagihan=b.idtagihan where a.idtagihan!=?");
 $k->bind_param('s',$id);
 $k->execute();
-$k->bind_result($idtagihan,$subject,$nominal,$jatuhtempo,$status,$idpembayaran);
+$k->bind_result($idtagihan,$subject,$nominal,$jatuhtempo,$status,$idpembayaran,$logg);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +49,7 @@ $k->bind_result($idtagihan,$subject,$nominal,$jatuhtempo,$status,$idpembayaran);
             <td>nominal</td>
             <td>jatuhtempo</td>
             <td>opsi</td>
-            <td>Status</td>
+            <td colspan="2">Status</td>
         </tr>
     </thead>
     <tbody>
@@ -75,6 +75,7 @@ $k->bind_result($idtagihan,$subject,$nominal,$jatuhtempo,$status,$idpembayaran);
             <td>$jatuhtempo</td>
             <td><a href=\"detail-tagihan.php?idtagihan=$idtagihan\">Detail Tagihan</a> | <a href=\"edit-tagihan.php?idtagihan=$idtagihan\">Edit Tagihan</a> | <a href=\"proses.php?submit=Hapus&idtagihan=$idtagihan\">Hapus Tagihan </a></td>
             <td>$kond</td>
+            <td>$logg</td>
         </tr>";
     }
     ?>

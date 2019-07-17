@@ -3,6 +3,7 @@ session_start();
 include_once("../req/session_check.php");
 include_once("valid-admin.php");
 include_once("../req/database.php");
+include_once("../req/databasepdo.php");
 
 echo $param = $_POST['submit'];
 $paramget = $_GET['submit'];
@@ -12,11 +13,12 @@ echo $status = $_POST['status'];
 
 if($param == "Masukkan Data"){
     require_once("../req/database.php");
-
-    $idd = "kolo";
-    $my = $mysqli->prepare("INSERT INTO apto_tagihan(idtagihan,iduser,subject,deskripsi,jatuhtempo,nominal) VALUES(?,?,?,?,?,?)");
-    $my->bind_param('ssssss',$idtagihan,$iduser,$subject,$deskripsi,$jatuhtempo,$nominal);
     
+    $idd = "kolo";
+    $my = $mysqli->prepare("INSERT INTO apto_tagihan(idtagihan,iduser,subject,deskripsi,jatuhtempo,nominal,log) VALUES(?,?,?,?,?,?,?)");
+    $my->bind_param('sssssss',$idtagihan,$iduser,$subject,$deskripsi,$jatuhtempo,$nominal,$yo);
+    
+    $yo = "data baru ditambahkan oleh : ".$_SESSION['data']['username'];
     $idtagihan = $_POST['idtagihan'];
     $iduser = $_POST['iduser'];
     $subject = $_POST['subject'];
@@ -28,17 +30,18 @@ if($param == "Masukkan Data"){
     header( "refresh:2; url=index.php" );
     
 }else if($param == "Edit Data"){
-    require_once("../req/database.php");
+    require_once("../req/databasepdo.php");
 
-    $mo = $mysqli->prepare("UPDATE apto_tagihan set iduser=?, subject=?, deskripsi=?, jatuhtempo=?, nominal=? where idtagihan=?");
-    $mo->bind_param('ssssss',$iduser,$subject,$deskripsi,$jatuhtempo,$nominal,$idtagihan);
-    
-    $iduser = $_POST['iduser'];
-    $subject = $_POST['subject'];
-    $deskripsi = $_POST['deskripsi'];
-    $jatuhtempo = $_POST['jatuhtempo'];
-    $nominal = $_POST['nominal'];
-    $idtagihan = $_POST['idtagihan'];
+    $mo = $pdo->prepare("UPDATE apto_tagihan set iduser=:a, subject=:b, deskripsi=:c, jatuhtempo=:d, nominal=:e, log=:f where idtagihan=:g");
+    #$mo->bindParam(":a",":b",":c",":d",":e",":f",":g",$iduser,$subject,$deskripsi,$jatuhtempo,$nominal,$yoi,$idtagihan);
+
+    $mo->bindParam(":a",$iduser = $_POST['iduser']);
+    $mo->bindParam(":b",$subject = $_POST['subject']);
+    $mo->bindParam(":c",$deskripsi = $_POST['deskripsi']);
+    $mo->bindParam(":d",$jatuhtempo = $_POST['jatuhtempo']);
+    $mo->bindParam(":e",$nominal = $_POST['nominal']);
+    $mo->bindParam(":f",$yoi = "data baru dirubah oleh : ".$_SESSION['data']['username']);
+    $mo->bindParam(":g",$idtagihan = $_POST['idtagihan']);
     $mo->execute();
 
     header( "refresh:2; url=index.php" );

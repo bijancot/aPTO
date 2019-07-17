@@ -49,12 +49,16 @@ $ko->bind_result($hitung);
                         while($v->fetch()){
                             if($status==1){
                                 $kond="Dalam proses";
+                                $hoho = " - ";
                             }else if($status==2){
                                 $kond="Tagihan diterima";
+                                $hoho = " - ";
                             }else if($status==0){
                                 $kond="Belum dibayar";
+                                $hoho = "<a href=\"bayar.php?idtagihan=$idtagihan\"/>Bayar Tagihan</a>";
                             }else if($status==3){
                                 $kond="Pembayaran ditolak";
+                                $hoho = "<a href=\"bayar.php?idtagihan=$idtagihan\"/>Bayar Tagihan</a>";
                             }
                             echo "
                         <tr>
@@ -63,7 +67,7 @@ $ko->bind_result($hitung);
                             <td>$iduser / $nom</td>
                             <td>$deskripsi</td>
                             <td>$nominal</td>
-                            <td><a href=\"detail-tagihan.php\"/>Detail Tagihan<a/> | <a href=\"bayar.php?idtagihan=$idtagihan\"/>Bayar Tagihan</a></td>
+                            <td><a href=\"detail-tagihan.php\"/>Detail Tagihan<a/> | $hoho</td>
                             <td>$kond</td>
                         </tr>";}
                     }else if($hitung==0){
